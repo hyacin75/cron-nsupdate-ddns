@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-nsupdate-ddns
+  namespace: cron
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 300
+      template:
+        spec:
+          volumes:
+            - name: ddns-key
+              secret:
+                secretName: ddns-key
+          containers:
+          - name: nsupdate-ddns
+            image: registerserver.example.com:5000/cron-nsupdate-ddns:1.0.1
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: SERVER
+              value: "yourdnsserver.example.com"
+            - name: ZONE
+              value: "dynzone.example.com"
+            - name: HOST
+              value: "hostname"
+            - name: KEY
+              value: "/mnt/ddns-key"
+            volumeMounts:
+              - name: ddns-key
+                mountPath: /mnt/ddns-key
+                subPath: ddns-key
+          restartPolicy: Never
