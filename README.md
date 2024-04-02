@@ -2,7 +2,9 @@
 
 ---
 
-Simple shell script and Dockerfile to update an RFC 2136 record with your current internet address
+Simple shell script and Dockerfile to update an RFC 2136 zone/server with your current internet address
+
+Builds into a very slim (23.4 MB) and lightweight container
 
 ---
 
