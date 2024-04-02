@@ -26,6 +26,6 @@ The key can be mounted from a Kubernetes secret as in the sample cron manifest, 
 
 As a very basic means of error checking the script validates that the result of the api call and dns lookup are IP addresses - that being the case, the record must already exist or the script will fail.
 
-Big thanks to ipify.org for the awesome service that powers all this.
+Big thanks to [ipify.org](https://www.ipify.org/) for the awesome service that powers all this.
 
 ---
