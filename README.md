@@ -18,7 +18,7 @@ Required parameters -
 
 The first three are the standard fields from an nsupdate request.
 
-The last is a bind key to provide access to update the zone.
+The last is a bind key(file) to provide access to update the zone.
 
 Other authentication methods are not supported, and key is mandatory.  None of this should be difficult to udpate if you have other requirements though.
 
